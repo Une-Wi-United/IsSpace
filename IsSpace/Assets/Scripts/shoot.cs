@@ -5,25 +5,15 @@ using UnityEngine;
 public class shoot : MonoBehaviour
 {
     public string shotCase;
-
-    public float maxTimeReload=2;
+    public float maxTimeReload=10;
     public float timeReload = 0;
     public GameObject bullet;
-    private GameObject tempBullet;
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (Input.GetKey(shotCase))
-        {
-            if (timeReload < 1)
-            {
-                tempBullet = Instantiate(bullet, transform.position, transform.rotation) as GameObject;
-                tempBullet.GetComponent<Bullet>().owner=gameObject.name;
-                timeReload = maxTimeReload;
-            }
-
-        }
-        if (timeReload > 0) timeReload -= Time.deltaTime;
-    }
-}
+    void FixedUpdate(){
+        if (Input.GetKey(shotCase)){
+            if (timeReload <= 0f){
+                Instantiate(bullet, transform.position, transform.rotation);
+				timeReload = maxTimeReload;
+        }   }
+        if (timeReload > 0) {timeReload -= Time.fixedDeltaTime;
+}   }   }

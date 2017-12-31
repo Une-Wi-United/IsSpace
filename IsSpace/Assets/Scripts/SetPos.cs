@@ -7,8 +7,5 @@ using UnityEngine;
 public class SetPos : MonoBehaviour
 {
     public Transform globject;
-	void Update ()
-    {
-        transform.position = globject.position;
-	}
-}
+	void Update (){transform.position.Set(globject.position.x, globject.position.y, transform.position.z);
+}   }
